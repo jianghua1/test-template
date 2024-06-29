@@ -21,5 +21,12 @@
       "@vue-macros/volar/define-slots",
       "@vue-macros/volar/export-props"
     ]
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

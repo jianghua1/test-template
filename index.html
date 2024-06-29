@@ -3,11 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Vite App</title>
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      function isMobileDevice() {
+        const userAgent = navigator.userAgent;
+        const mobileRegex = /(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/i;
+
+        if(mobileRegex.test(userAgent))
+          document.body.classList.add('mobile-device');
+      }
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
