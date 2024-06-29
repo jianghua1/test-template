@@ -66,8 +66,6 @@ const emits = defineEmits(['gofather'])
 
 const swiperRef = ref<SwiperType>()
 const activeIndex = ref(0)
-// swiper.slideTo(index, speed, runCallbacks)
-
 //轮播图初始化事件
 const onSwiper = (swiper: any) => {
   swiperRef.value = swiper

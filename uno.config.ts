@@ -6,7 +6,9 @@ import { presetWind, presetIcons, transformerDirectives, transformerVariantGroup
 export default defineConfig({
   //全局样式
   shortcuts: {
-    'bg-image': 'w-full h-full bg-cover bg-no-repeat bg-center-top'
+    'bg-image': 'w-full h-full bg-cover bg-no-repeat bg-center-top',
+    btn: 'px-4 py-2 bg-sky-400 text-white hover:bg-sky-300',
+    'btn-plain': 'px-4 py-2 border border-sky-400 text-sky-400 hover:(bg-gray-300 text-sky-500)'
   },
   presets: [
     presetWind(),

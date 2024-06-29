@@ -94,7 +94,7 @@ withDefaults(defineProps<FootItem>(), {
   })
 })
 </script>
-<style scoped>
+<style scoped lang="scss">
 i {
   background-image: url('@/assets/icons/beianicon.png');
 }

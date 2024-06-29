@@ -4,8 +4,8 @@
     <div v-else :class="[icon, 'w-20 h-20']"></div>
     <!-- 然后又是一个div 上下结构 居左 -->
     <div v-if="title || subTitle" :class="titleClass">
-      <div class="text-lg text-bold text-dark-300 pb-2">{{ title }}</div>
-      <div class="text-sm text-dark-100 font-300">{{ subTitle }}</div>
+      <div class="text-lg text-bold text-dark-300 mb-2 line-clamp-2">{{ title }}</div>
+      <div class="text-sm text-dark-100 font-300 line-clamp-2">{{ subTitle }}</div>
     </div>
     <slot :item="{ image, icon, title, subTitle, url }"></slot>
   </div>

@@ -30,7 +30,11 @@ export default defineConfig({
       extensions: ['.vue', '.md']
     }),
     vue({
-      include: [/\.vue$/, /\.md$/]
+      include: [/\.vue$/, /\.md$/],
+      script: {
+        // 开启defineModel配置
+        defineModel: true
+      }
     }),
     vueJsx(),
     // Vue3.3以后，不需要这些新的特性了

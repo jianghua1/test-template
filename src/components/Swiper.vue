@@ -46,7 +46,6 @@ const props = defineProps({
 const emits = defineEmits(['gofather'])
 
 const onSwiper = (swiper: any) => {
-  console.log(swiper);
 }
 const onSlideChange = (e) => {
   emits('gofather', e)
