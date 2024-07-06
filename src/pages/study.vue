@@ -9,10 +9,11 @@
         <Container>
           <!-- 分类 -->
           <div class="w-full flex justify-between">
-            <ul class="flex justify-start text-white swiper1" v-if="$route.name === '/study/card'">
+            <!-- <ul class="flex justify-start text-white swiper1" v-if="$route.name === '/study/card'">
               <li class="item active2">购物车</li>
-            </ul>
-            <ul class="flex justify-start text-white swiper1" v-else>
+            </ul> -->
+            <!-- <ul class="flex justify-start text-white swiper1" v-else> -->
+            <ul class="flex justify-start text-white swiper1">
               <li class="item active2">每日一课</li>
               <li class="item">精品微课</li>
               <li class="item">学习计划</li>

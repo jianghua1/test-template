@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Swiper :items="items" :height="36 * store.rate + 'rem'"></Swiper>
+    <Swiper :items="swipers" :height="36 * store.rate + 'rem'"></Swiper>
     <Container>
       <!-- 标题 -->
       <div class="py-4">
@@ -45,7 +45,7 @@
     </Container>
     <Container>
       <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full lt-sm:px-4">
-        <a :href="item.url" target="_blank" v-for="(item, index) in lessons" :key="index" class="flex">
+        <a :href="item.url" target="_blank" v-for="(item, index) in courses" :key="index" class="flex">
           <Card class="w-full rounded-3 transition-all hover:(transform-translate-y--1 shadow-lg)" :image="item.image"
             image-type="rounded" :title="item.title" :sub-title="item.subTitle" border>
             <template #default>
@@ -67,7 +67,8 @@
       </div>
     </Container>
     <Container class="w-full text-gray-400">
-      <Swiper :items="items" :height="28 * store.rate + 'rem'" class="w-2/3" @gofather="handleSwiperChange"></Swiper>
+      <Swiper :items="swiperProjects" :height="28 * store.rate + 'rem'" class="w-2/3" @gofather="handleSwiperChange">
+      </Swiper>
       <div class="w-1/3 bg-coolgray-700 self-stretch flex flex-col justify-center px-4">
         <a :href="selectItem.url" target="_blank">
           <div class="text-2xl font-bold pb-4 text-gray-100">{{ selectItem.title }}</div>
@@ -119,10 +120,17 @@ import { registerSW } from 'virtual:pwa-register'
 import bg from '@/assets/images/bg.png'
 import { useThemeStore } from '@/store/useThemeStore';
 
+import { getHomeData } from '@/api/home'
+
+onBeforeMount(async () => {
+  const res = await getHomeData()
+  console.log('响应回来的数据', res)
+})
+
 
 const store = useThemeStore()
 
-const items: SwiperItemType[] = [
+const swipers: SwiperItemType[] = [
   {
     image: bg,
     title: '传播技术的种子1',
@@ -187,7 +195,7 @@ const projects = [
   }
 ]
 
-const lessons = [
+const courses = [
   {
     title: '前端高级工程师（大前端）',
     subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
@@ -226,6 +234,27 @@ const lessons = [
   }
 ]
 
+const swiperProjects: SwiperItemType[] = [
+  {
+    image: bg,
+    title: '传播技术的种子1',
+    subTitle: '让技术没有门槛，让沟通没有障碍1',
+    url: 'http://www.imooc.com'
+  },
+  {
+    image: bg,
+    title: '传播技术的种子2',
+    subTitle: '让技术没有门槛，让沟通没有障碍2',
+    url: 'http://www.baidu.com'
+  },
+  {
+    image: bg,
+    title: '传播技术的种子3',
+    subTitle: '让技术没有门槛，让沟通没有障碍3',
+    url: 'http://www.imooc.com'
+  }
+]
+
 const partners = ref([
   'https://wayearn.static.toimc.com/partner/logo1.png',
   'https://wayearn.static.toimc.com/partner/logo2.png',
@@ -235,7 +264,7 @@ const partners = ref([
   'https://wayearn.static.toimc.com/partner/logo7.png'
 ])
 
-const selectItem = ref(items[0])
+const selectItem = ref(swipers[0])
 
 onMounted(() => {
   registerSW({
@@ -250,7 +279,7 @@ onMounted(() => {
 
 function handleSwiperChange(e) {
   const index = e.activeIndex
-  selectItem.value = items[index]
+  selectItem.value = swipers[index]
 }
 </script>
 <style scoped lang="scss">
