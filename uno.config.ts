@@ -19,5 +19,7 @@ export default defineConfig({
       }
     })
   ],
-  transformers: [transformerDirectives(), transformerVariantGroup()]
+  transformers: [transformerDirectives(), transformerVariantGroup()],
+  //这里的图标是从接口动态加载出来的class
+  safelist: ['i-mdi:web']
 })
