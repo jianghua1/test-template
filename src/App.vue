@@ -11,7 +11,6 @@ useResizeObserver(document.body, () => {
   })
 })
 </script>
-
 <template>
   <router-view />
 </template>
